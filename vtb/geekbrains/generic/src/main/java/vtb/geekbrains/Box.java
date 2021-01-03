@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Box<T extends Fruit> {
     private ArrayList<T> list;
+
     public ArrayList<T> getList() {
         return list;
     }
@@ -21,12 +22,12 @@ public class Box<T extends Fruit> {
         return weight;
     }
 
-    public boolean compare(Box box) {
-        return box.getWeight() == this.getWeight();
+    public boolean compare(Box<?> box) {
+        return Math.abs(box.getWeight() - this.getWeight()) < 0.0001;
     }
 
     public void intersperse(Box<T> box) {
-       this.list.addAll(box.getList());
+        this.list.addAll(box.getList());
         box.getList().clear();
     }
 }
