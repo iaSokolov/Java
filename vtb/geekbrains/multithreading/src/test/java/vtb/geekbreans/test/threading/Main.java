@@ -1,4 +1,4 @@
-package vtb.geekbreans;
+package vtb.geekbreans.test.threading;
 
 public class Main {
     static final int SIZE = 10000000;
