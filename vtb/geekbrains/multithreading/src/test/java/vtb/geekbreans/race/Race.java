@@ -1,6 +1,7 @@
 package vtb.geekbreans.race;
 
-import vtb.geekbreans.race.Stage;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Race {
     private ArrayList<Stage> stages;
