@@ -32,6 +32,9 @@ public class Car implements Runnable {
             System.out.println(this.name + " готовится");
             Thread.sleep(500 + (int) (Math.random() * 800));
             System.out.println(this.name + " готов");
+
+            // TODO: 1/4/21 Тут надо добавить счетчик для потоков 
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
