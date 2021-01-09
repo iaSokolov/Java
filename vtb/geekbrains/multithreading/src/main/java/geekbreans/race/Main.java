@@ -18,6 +18,19 @@ public class Main {
         for (Car car : cars) {
             new Thread(car).start();
         }
-        System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
+        System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");*/
+
+        String a1, b1;
+        a1 = new String("String 1");
+        b1 = "String 2";
+        swap(a1,b1);
+        System.out.println(a1);
+        System.out.println(b1);
+    }
+
+    static void swap(String a, String b) {
+        String c = a;
+        a.toUpperCase();
+        b = c;
     }
 }
