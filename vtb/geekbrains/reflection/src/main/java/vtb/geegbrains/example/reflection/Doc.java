@@ -1,4 +1,4 @@
-package vtb.geegbrains.example;
+package vtb.geegbrains.example.reflection;
 
 //Задачи:
 // Создать валидатор на основе аннотаций:

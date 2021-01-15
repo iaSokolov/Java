@@ -1,4 +1,4 @@
-package vtb.geegbrains.example;
+package vtb.geegbrains.example.reflection;
 
 import java.util.ArrayList;
 
