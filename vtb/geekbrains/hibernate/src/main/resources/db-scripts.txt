@@ -1,0 +1,45 @@
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+CREATE TABLE catalogs (
+  id serial,
+  title varchar(200),
+  primary key(id)
+);
+
+CREATE TABLE authors (
+  id serial,
+  name varchar(200),
+  primary key(id)
+);
+
+CREATE TABLE books (
+  id serial,
+  title varchar(200),
+  author_id int,
+  primary key(id),
+  FOREIGN KEY(author_id) REFERENCES authors(id)
+);
+
+CREATE TABLE readers (
+ id serial,
+ name varchar(200),
+ primary key (id)
+);
+
+CREATE TABLE books_readers (
+  reader_id int,
+  book_id int,
+  PRIMARY KEY (book_id, reader_id),
+  foreign key(reader_id)  references readers(id)
+  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  foreign key(book_id)  references books(id)
+  ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+--delete from books_readers;
+--delete from books;
+--delete from readers;
+--delete from authors;
+--delete from catalogs;
+commit;
