@@ -47,8 +47,6 @@ public class HibernateApp {
 
             session.getTransaction().commit();
 
-
-
 //            session = factory.getCurrentSession();
 //            session.beginTransaction();
 //            Reader reader = session.get(Reader.class, 1);
