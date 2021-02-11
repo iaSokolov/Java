@@ -4,6 +4,7 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 import vtb.geekbrains.market.Customer;
 import vtb.geekbrains.market.MarketApp;
 import vtb.geekbrains.market.Product;
+import vtb.geekbrains.market.Sale;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +22,12 @@ public class CreateSaleCommand implements Command {
                 Product product = MarketApp.factory.getCurrentSession().get(Product.class, Integer.valueOf(args[1]));
                 if (customer != null && product != null) {
 
-                    List<Product> listProduct = customer.getProduct();
-                    if (listProduct == null) {
-                        listProduct = new ArrayList<>();
-                    }
-                    listProduct.add(product);
-                    customer.setProduct(listProduct);
-                    MarketApp.factory.getCurrentSession().save(customer);
-                    MarketApp.factory.getCurrentSession().getTransaction().commit();
+                    Sale sale = new Sale();
+                    sale.setProduct(product);
+                    sale.setCustomer(customer);
+                    sale.setAmount(product.getPrice());
+
+                    MarketApp.factory.getCurrentSession().save(sale);
 
                     System.out.println("содана продажа: " + customer.toString() + " | " + product.toString());
                 } else {

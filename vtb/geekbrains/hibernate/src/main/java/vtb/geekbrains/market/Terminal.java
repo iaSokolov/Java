@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Terminal {
     public Terminal() {
-
     }
 
     public void input() {
@@ -17,16 +16,20 @@ public class Terminal {
         while (true) {
             System.out.print("введите команду:");
             line = scanner.nextLine();
-            commandInput = line.split(" ");
-            commandName = commandInput[0];
-            commandParams = "";
-            if (commandInput.length > 1) {
-                commandParams = commandInput[1];
-            }
-            if (commandName.toLowerCase().equals("exit")) {
-                break;
+            if (line.isEmpty()) {
+                continue;
             } else {
-                CommandFactory.getCommand(commandName).exec(commandParams);
+                commandInput = line.split(" ");
+                commandName = commandInput[0];
+                commandParams = "";
+                if (commandInput.length > 1) {
+                    commandParams = commandInput[1];
+                }
+                if (commandName.toLowerCase().equals("exit")) {
+                    break;
+                } else {
+                    CommandFactory.getCommand(commandName).exec(commandParams);
+                }
             }
         }
     }

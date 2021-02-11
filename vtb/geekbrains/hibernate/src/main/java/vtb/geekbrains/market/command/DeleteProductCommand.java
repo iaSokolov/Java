@@ -4,24 +4,22 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 import vtb.geekbrains.market.MarketApp;
 import vtb.geekbrains.market.Product;
 
-import java.math.BigDecimal;
-
-public class CreateProductCommand implements Command {
+public class DeleteProductCommand implements Command {
     @Override
     public void exec(String params) {
-        if (params.length() != 0) {
+        if (!params.isEmpty()) {
             if (!MarketApp.factory.getCurrentSession().getTransaction().getStatus().equals(TransactionStatus.ACTIVE)) {
                 MarketApp.factory.getCurrentSession().beginTransaction();
             }
-            String[] parameters = params.split(",");
-            if (parameters.length == 2) {
-                Product product = new Product(parameters[0], new BigDecimal(parameters[1]));
-                MarketApp.factory.getCurrentSession().save(product);
-                System.out.println("создан продукт: " + product.toString());
+            Product product = MarketApp.factory.getCurrentSession().get(Product.class, Integer.valueOf(params));
+            if (product == null) {
+                System.out.println("продукт не найден");
             } else {
-                System.out.println("параметр указаны не корректно");
+                MarketApp.factory.getCurrentSession().delete(product);
+                System.out.println("продукт удален");
             }
-        } else {
+        }
+        else {
             System.out.println("параметр указаны не корректно");
         }
     }

@@ -1,7 +1,9 @@
 package vtb.geekbrains.market;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.function.DoubleUnaryOperator;
 
 @Entity
 @Table(name = "product")
@@ -30,6 +32,17 @@ public class Product {
         this.name = name;
     }
 
+    @Column(name = "price")
+    private BigDecimal price;
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     @ManyToMany
     @JoinTable(name = "sales",
             joinColumns = @JoinColumn(name = "product_id"),
@@ -48,12 +61,17 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name) {
+    public Product(String name, BigDecimal price) {
         this.name = name;
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return "id=" + id +", name='" + name + '\'';
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
