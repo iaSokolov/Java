@@ -14,6 +14,7 @@ public class MarketApp {
                     .addAnnotatedClass(Sale.class)
                     .buildSessionFactory();
 
+            new Initialization();
             new Terminal().input();
         } catch (Exception ex) {
             System.out.println("ошибка: " + ex.getMessage());

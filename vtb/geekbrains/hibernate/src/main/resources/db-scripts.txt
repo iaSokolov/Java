@@ -13,7 +13,7 @@ CREATE TABLE authors (
   primary key(id)
 );
 
-CREATE TABLE books (
+CREATE TABLE books IF NOT EXISTS (
   id serial,
   title varchar(200),
   author_id int,
@@ -21,13 +21,13 @@ CREATE TABLE books (
   FOREIGN KEY(author_id) REFERENCES authors(id)
 );
 
-CREATE TABLE readers (
+CREATE TABLE readers IF NOT EXISTS (
  id serial,
  name varchar(200),
  primary key (id)
 );
 
-CREATE TABLE books_readers (
+CREATE TABLE books_readers IF NOT EXISTS (
   reader_id int,
   book_id int,
   PRIMARY KEY (book_id, reader_id),
