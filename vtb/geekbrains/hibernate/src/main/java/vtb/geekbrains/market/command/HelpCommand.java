@@ -17,6 +17,9 @@ public class HelpCommand implements Command {
         at.addRow("cp", "создать товар");
         at.addRule();
 
+        at.addRow("mp", "изменить товар");
+        at.addRule();
+
         at.addRow("dp", "удалить товар");
         at.addRule();
 
@@ -42,6 +45,9 @@ public class HelpCommand implements Command {
         at.addRule();
 
         at.addRow("save", "сохранить изменения");
+        at.addRule();
+
+        at.addRow("exit", "завершить работу приложения");
         at.addRule();
 
         String rend = at.render();

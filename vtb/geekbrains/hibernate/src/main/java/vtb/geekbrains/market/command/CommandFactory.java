@@ -16,6 +16,10 @@ public class CommandFactory {
                 command = new CreateProductCommand();
                 break;
 
+            case "mp":
+                command = new ModifyProductCommand();
+                break;
+
             case "cc":
                 command = new CreateCustomerCommand();
                 break;
