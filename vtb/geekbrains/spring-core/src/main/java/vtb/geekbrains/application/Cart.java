@@ -1,16 +1,24 @@
 package vtb.geekbrains.application;
 
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @Getter
 public class Cart {
-    @Autowired
-    ProductService productService;
+    private List<Product> listProduct;
+
+    @PostConstruct
+    public void postConstruct() {
+        this.listProduct = new ArrayList<>();
+    }
 
     public void addProduct(Product product) {
-        productService.getListProduct().add(product);
+        this.listProduct.add(product);
     }
 }

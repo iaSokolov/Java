@@ -7,14 +7,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter
-
 public class OrderService {
     @Autowired
     Cart cart;
 
     public void sale() {
         double amount = 0;
-        for (Product product: this.cart.productService.getListProduct()) {
+        for (Product product: this.cart.getListProduct()) {
             System.out.println(product.toString());
             amount += product.getCost().doubleValue();
         }

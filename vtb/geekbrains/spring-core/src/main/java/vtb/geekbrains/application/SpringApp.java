@@ -10,10 +10,11 @@ public class SpringApp {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(ConfigApp.class);
 
+        ProductService productService = context.getBean(ProductService.class);
         Cart cart = context.getBean(Cart.class);
-        cart.addProduct(new Product(11, "new Item 11", BigDecimal.valueOf(11)) );
-
         OrderService service = context.getBean(OrderService.class);
+
+        cart.addProduct(productService.findByTitle("Item 1"));
         service.sale();
 
         System.out.println("end-of-program");
