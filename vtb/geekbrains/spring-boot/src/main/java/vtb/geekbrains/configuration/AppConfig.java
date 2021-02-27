@@ -1,9 +1,8 @@
-package vtb.geekbrains.config;
-
+package vtb.geekbrains.configuration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("vtb.geekbrains.application")
-public class ConfigApp {
+@ComponentScan("vtb.geekbrains")
+public class AppConfig {
 }
