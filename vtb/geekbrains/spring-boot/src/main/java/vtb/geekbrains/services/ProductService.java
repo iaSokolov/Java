@@ -3,11 +3,13 @@ package vtb.geekbrains.services;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 import vtb.geekbrains.entities.Product;
+import vtb.geekbrains.entities.SearchProduct;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Getter
@@ -50,6 +52,23 @@ public class ProductService {
         this.listProduct = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             this.listProduct.add(new Product(i, String.format("Item %s", i), BigDecimal.valueOf(i)));
+        }
+    }
+
+    public List<Product> search(SearchProduct searchParameters) {
+        return this.listProduct
+                .stream()
+                .filter(item ->
+                        item.getCost().compareTo(searchParameters.getMinCost()) >= 0 &&
+                        item.getCost().compareTo(searchParameters.getMaxCost()) <= 0)
+                .collect(Collectors.toList());
+    }
+
+    public void edit(Product _product) {
+        Product product = this.findById(_product.getId());
+        if (product != null) {
+            product.setTitle(_product.getTitle());
+            product.setCost(_product.getCost());
         }
     }
 }
