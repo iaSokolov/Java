@@ -20,6 +20,22 @@ public class ProductService {
         }
     }
 
+    public void deleteProduct(int productId) {
+        Product product = findById(productId);
+        if (product != null) {
+            this.listProduct.remove(product);
+        }
+    }
+
+    public Product findById(int productId) {
+        Product product = this.listProduct
+                .stream()
+                .filter(item -> item.getId() == productId)
+                .findFirst()
+                .orElse(null);
+        return product;
+    }
+
     public Product findByTitle(String title) {
         Product product = this.listProduct
                 .stream()
