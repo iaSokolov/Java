@@ -1,4 +1,4 @@
-package vtb.geekbrains.market;
+package vtb.geekbrains.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

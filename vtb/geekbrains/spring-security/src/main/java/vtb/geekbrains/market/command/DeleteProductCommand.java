@@ -1,9 +1,5 @@
 package vtb.geekbrains.market.command;
 
-import org.hibernate.resource.transaction.spi.TransactionStatus;
-import vtb.geekbrains.market.MarketApp;
-import vtb.geekbrains.market.Product;
-
 public class DeleteProductCommand implements Command {
     @Override
     public void exec(String params) {

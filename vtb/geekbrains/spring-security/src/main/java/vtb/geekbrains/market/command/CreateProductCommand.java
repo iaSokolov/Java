@@ -1,11 +1,5 @@
 package vtb.geekbrains.market.command;
 
-import org.hibernate.resource.transaction.spi.TransactionStatus;
-import vtb.geekbrains.market.MarketApp;
-import vtb.geekbrains.market.Product;
-
-import java.math.BigDecimal;
-
 public class CreateProductCommand implements Command {
     @Override
     public void exec(String params) {

@@ -1,12 +1,5 @@
 package vtb.geekbrains.market.command;
 
-import de.vandermeer.asciitable.AsciiTable;
-import org.hibernate.resource.transaction.spi.TransactionStatus;
-import vtb.geekbrains.market.MarketApp;
-import vtb.geekbrains.market.Sale;
-
-import java.util.List;
-
 public class ListSalesCommand implements Command {
     @Override
     public void exec(String params) {

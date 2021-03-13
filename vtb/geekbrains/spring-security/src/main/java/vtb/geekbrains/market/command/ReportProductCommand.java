@@ -1,13 +1,5 @@
 package vtb.geekbrains.market.command;
 
-import de.vandermeer.asciitable.AsciiTable;
-import org.hibernate.resource.transaction.spi.TransactionStatus;
-import vtb.geekbrains.market.Customer;
-import vtb.geekbrains.market.MarketApp;
-import vtb.geekbrains.market.Product;
-
-import java.util.List;
-
 public class ReportProductCommand implements Command {
     @Override
     public void exec(String params) {

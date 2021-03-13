@@ -3,6 +3,9 @@ package vtb.geekbrains.market;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Component;
+import vtb.geekbrains.entity.Customer;
+import vtb.geekbrains.entity.Product;
+import vtb.geekbrains.entity.Sale;
 
 import javax.annotation.PostConstruct;
 

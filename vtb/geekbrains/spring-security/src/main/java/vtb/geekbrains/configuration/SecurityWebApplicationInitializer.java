@@ -1,2 +1,8 @@
-package vtb.geekbrains.configuration;public class SecurityWebApplicationInitializer {
+package vtb.geekbrains.configuration;
+
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+import org.springframework.stereotype.Component;
+
+@Component
+public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
 }

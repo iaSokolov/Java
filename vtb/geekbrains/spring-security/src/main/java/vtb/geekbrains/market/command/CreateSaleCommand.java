@@ -1,11 +1,5 @@
 package vtb.geekbrains.market.command;
 
-import org.hibernate.resource.transaction.spi.TransactionStatus;
-import vtb.geekbrains.market.Customer;
-import vtb.geekbrains.market.MarketApp;
-import vtb.geekbrains.market.Product;
-import vtb.geekbrains.market.Sale;
-
 public class CreateSaleCommand implements Command {
     @Override
     public void exec(String params) {

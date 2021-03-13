@@ -1,15 +1,5 @@
 package vtb.geekbrains.market.command;
 
-import org.hibernate.resource.transaction.spi.TransactionStatus;
-import vtb.geekbrains.market.MarketApp;
-import vtb.geekbrains.market.Product;
-
-import javax.persistence.LockModeType;
-import javax.persistence.LockTimeoutException;
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-
 public class ModifyProductCommand implements Command {
     @Override
     public void exec(String params) {

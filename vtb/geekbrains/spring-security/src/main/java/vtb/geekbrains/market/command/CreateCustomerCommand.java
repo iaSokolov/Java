@@ -2,7 +2,7 @@ package vtb.geekbrains.market.command;
 
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import vtb.geekbrains.market.Customer;
+import vtb.geekbrains.entity.Customer;
 import vtb.geekbrains.market.MarketApp;
 
 public class CreateCustomerCommand implements Command {

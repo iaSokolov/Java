@@ -18,14 +18,9 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/")
-    public String getIndex() {
-        return "index";
-    }
-
     @GetMapping("/product")
     public String getProduct(Model model, @RequestParam(name = "search", required = false) String search) {
-        List<Product> productList = this.productService.getAllProducts();
+        List<Product> productList = this.productService.getAllProduct();
 
 //        if (search == null || search.isEmpty()) {
 //            productList = productService.getListProduct();

@@ -1,4 +1,6 @@
-package vtb.geekbrains.market;
+package vtb.geekbrains.entity;
+
+import vtb.geekbrains.entity.Product;
 
 import javax.persistence.*;
 import java.util.List;
