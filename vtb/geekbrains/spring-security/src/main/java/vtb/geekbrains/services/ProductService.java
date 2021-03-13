@@ -1,4 +1,4 @@
-package vtb.geekbrains.services;
+package vtb.geekbrains.dao;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,7 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import vtb.geekbrains.market.MarketApp;
-import vtb.geekbrains.market.Product;
+import vtb.geekbrains.entity.Product;
 
 import java.util.List;
 

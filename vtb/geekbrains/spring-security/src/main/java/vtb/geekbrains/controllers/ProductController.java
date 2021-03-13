@@ -6,16 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import vtb.geekbrains.market.Product;
+import vtb.geekbrains.entity.Product;
 import vtb.geekbrains.services.ProductService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Controller
-public class MainController {
+public class ProductController {
     @Autowired
     ProductService productService;
 
@@ -26,7 +25,7 @@ public class MainController {
 
     @GetMapping("/product")
     public String getProduct(Model model, @RequestParam(name = "search", required = false) String search) {
-        List<Product> productList = this.productService.getProducts();
+        List<Product> productList = this.productService.getAllProducts();
 
 //        if (search == null || search.isEmpty()) {
 //            productList = productService.getListProduct();
