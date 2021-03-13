@@ -8,9 +8,8 @@ import vtb.geekbrains.entities.Product;
 import vtb.geekbrains.entities.SearchProduct;
 import vtb.geekbrains.services.ProductService;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
 @Controller
