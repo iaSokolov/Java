@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug = false)
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource);
@@ -37,10 +38,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                .antMatchers("/product").hasAnyRole("USER", "ADMIN")
+//                .anyRequest().permitAll()
+//                    .and()
+//                .httpBasic(); //formLogin();
+
         http.authorizeRequests()
-                .antMatchers("/product").hasAnyRole("USER", "ADMIN")
-                .anyRequest().permitAll()
-                .and().formLogin();
+                .antMatchers("/", "/public/**").permitAll()
+                .anyRequest().authenticated()
+                    .and()
+                .formLogin().permitAll()
+                    .and()
+                .logout().permitAll();
+
+        /*http.authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login").permitAll()
+                .and()
+                .logout()
+                .permitAll();*/
+        http.exceptionHandling().accessDeniedPage("/403");
     }
 }
 
