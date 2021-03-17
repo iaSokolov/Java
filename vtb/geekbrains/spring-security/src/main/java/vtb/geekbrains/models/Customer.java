@@ -1,6 +1,4 @@
-package vtb.geekbrains.entity;
-
-import vtb.geekbrains.entity.Product;
+package vtb.geekbrains.models;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,13 +9,13 @@ public class Customer {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

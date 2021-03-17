@@ -1,28 +1,19 @@
 package vtb.geekbrains.services;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import vtb.geekbrains.dao.ProductDao;
+import org.springframework.stereotype.Service;
 
-import vtb.geekbrains.entity.Product;
+import vtb.geekbrains.models.Product;
+import vtb.geekbrains.repositories.ProductRepo;
 
 import java.util.List;
 
-@Component
-@Getter
-@Setter
+@Service
 public class ProductService {
-    private ProductDao productDao;
-
     @Autowired
-    public ProductService(ProductDao productDao) {
-        this.productDao = productDao;
-    }
+    private ProductRepo productRepo;
 
     public List<Product> getAllProduct() {
-        return this.productDao.getAllProduct();
+        return this.productRepo.findAll();
     }
 }

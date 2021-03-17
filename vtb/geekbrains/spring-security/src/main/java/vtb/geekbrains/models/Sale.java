@@ -1,8 +1,9 @@
-package vtb.geekbrains.entity;
+package vtb.geekbrains.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Table(name = "sales")
@@ -10,10 +11,10 @@ public class Sale {
     @Embeddable
     public static class Id implements Serializable {
         @Column(name = "product_id")
-        int product_id;
+        Long product_id;
 
         @Column(name = "customer_id")
-        int customer_id;
+        Long customer_id;
 
         @Override
         public boolean equals(Object o) {
@@ -25,7 +26,7 @@ public class Sale {
 
         @Override
         public int hashCode() {
-            return product_id + customer_id;
+            return Objects.hash(product_id, customer_id);
         }
     }
 
