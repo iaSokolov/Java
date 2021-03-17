@@ -49,22 +49,22 @@ public class ProductController {
 //        return "searchProduct";
 //    }
 //
-//    @GetMapping("/product/{id}")
-//    public String getProduct(Model model, @PathVariable(value = "id") int productId) {
-//        Product product = productService.findById(productId);
-//        model.addAttribute("product", product);
-//        return "productEdit";
-//    }
-//
-//    @PostMapping(value = "/product/edit", params = "action=save")
-//    public String saveProduct(Product product) {
-//        productService.edit(product);
-//        return "redirect:/product";
-//    }
-//
-//    @PostMapping(value = "/product/edit", params = "action=delete")
-//    public String deleteProduct(@ModelAttribute Product product) {
-//        productService.deleteProduct(product.getId());
-//        return "redirect:/product";
-//    }
+    @GetMapping("/product/{id}")
+    public String getProduct(Model model, @PathVariable(value = "id") Long productId) {
+        Product product = this.productService.getById(productId);
+        model.addAttribute("product", product);
+        return "productEdit";
+    }
+
+    @PostMapping(value = "/product/edit", params = "action=save")
+    public String saveProduct(Product product) {
+        this.productService.save(product);
+        return "redirect:/product";
+    }
+
+    @PostMapping(value = "/product/edit", params = "action=delete")
+    public String deleteProduct(@ModelAttribute Product product) {
+        this.productService.delete(product);
+        return "redirect:/product";
+    }
 }
