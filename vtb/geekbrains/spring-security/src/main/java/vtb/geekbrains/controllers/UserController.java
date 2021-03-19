@@ -1,22 +1,21 @@
 package vtb.geekbrains.controllers;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import vtb.geekbrains.services.SaleService;
+import vtb.geekbrains.services.UserService;
 
 @Controller
-@RequestMapping(value = "/sales")
-public class SalesController {
+@RequestMapping(value = "/users")
+public class UserController {
     @Autowired
-    SaleService saleService;
+    UserService userService;
 
     @GetMapping
     public String getSales(Model model) {
-        model.addAttribute("sales", this.saleService.getAll());
-        return "sales";
+        model.addAttribute("users", this.userService.getAll());
+        return "users";
     }
 }
