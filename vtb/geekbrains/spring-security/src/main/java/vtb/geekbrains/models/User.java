@@ -3,10 +3,8 @@ package vtb.geekbrains.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -22,6 +20,12 @@ public class User {
 
     @Column(name = "enabled")
     private Boolean enabled;
+
+    @ManyToMany
+    @JoinTable(name = "authorities",
+            joinColumns = @JoinColumn(name = "username"),
+            inverseJoinColumns = @JoinColumn(name = "authority"))
+    private List<Role> role;
 
     public User() {
     }
