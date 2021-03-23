@@ -20,9 +20,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-security</artifactId>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-cloud-starter-security-jwt</artifactId>
+            <version></version>
         </dependency>
     </dependencies>
 </project>
