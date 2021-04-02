@@ -1,38 +1,42 @@
-package vtb.geekbrains.market.customer.controllers;
+package vtb.geekbrains.market.sales.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import vtb.geekbrains.market.customer.models.Customer;
-import vtb.geekbrains.market.customer.services.CustomerService;
+import vtb.geekbrains.market.sales.models.Sales;
+import vtb.geekbrains.market.sales.services.SalesService;
 
 import java.util.List;
 
 @RestController
-public class CustomerController {
+public class SalesController {
     final
-    CustomerService customerService;
+    SalesService salesService;
 
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
+    public SalesController(SalesService salesService) {
+
+        this.salesService = salesService;
     }
 
-    @GetMapping("/customer")
-    public List<Customer> getCustomerSet() {
-        List<Customer> customerList = this.customerService.getEntitySet();
-        return customerList;
+    @GetMapping("/sales")
+    public List<Sales> getSalesSet() {
+
+        return this.salesService.getEntitySet();
     }
 
-    @GetMapping("/customer/{id}")
-    public Customer getCustomerEntity(@PathVariable(value = "id") Long customerId) {
-        return this.customerService.getEntity(customerId);
+    @GetMapping("/sale")
+    public Sales getSalesEntity(Sales.Id salesId) {
+
+        return this.salesService.getEntity(salesId);
     }
 
-    @PostMapping("/customer")
-    public void createCustomerEntity(@RequestBody Customer customer) {
-        this.customerService.createEntity(customer);
+    @PostMapping("/sale")
+    public void createSalesEntity(@RequestBody Sales sales) {
+
+        this.salesService.createEntity(sales);
     }
 
-    @DeleteMapping("/customer")
-    public void deleteCustomerEntity(@RequestBody Customer customer) {
-        this.customerService.deleteEntity(customer);
+    @DeleteMapping("/sale")
+    public void deleteSalesEntity(@RequestBody Sales sales) {
+
+        this.salesService.deleteEntity(sales);
     }
 }

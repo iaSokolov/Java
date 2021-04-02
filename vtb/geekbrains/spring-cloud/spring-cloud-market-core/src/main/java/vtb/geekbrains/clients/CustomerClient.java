@@ -5,23 +5,23 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import vtb.geekbrains.models.Product;
+import vtb.geekbrains.models.Customer;
 
 import java.util.List;
 
-@FeignClient("product")
-public interface ProductClient {
-    @GetMapping("/product")
-    public List<Product> getAll();
+@FeignClient("customer")
+public interface CustomerClient {
+    @GetMapping("/customer")
+    public List<Customer> getAll();
 
-    @GetMapping("/product/{id}")
-    public Product getById(@PathVariable(value = "id") Long productId);
+    @GetMapping("/customer/{id}")
+    public Customer getById(@PathVariable(value = "id") Long customerId);
 
-    @PostMapping("/product")
-    public Product save(Product product);
+    @PostMapping("/customer")
+    public Customer save(Customer customer);
 
-    @DeleteMapping("/product")
-    void delete(Product product);
+    @DeleteMapping("/customer")
+    void delete(Customer customer);
 }
 
 

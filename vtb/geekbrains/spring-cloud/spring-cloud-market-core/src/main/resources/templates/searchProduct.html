@@ -14,19 +14,19 @@
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
-      }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
 
     </style>
 
@@ -94,11 +94,13 @@
             <form th:action="@{/searchProduct}" method="post" th:object="${search}">
                 <div class="form-group">
                     <label for="minCost">Минимальная цена</label>
-                    <input type="number" class="form-control" id="minCost" placeholder="Введите минимальную цену" th:field="*{minCost}">
+                    <input type="number" class="form-control" id="minCost" placeholder="Введите минимальную цену"
+                           th:field="*{minCost}">
                 </div>
                 <div class="form-group">
                     <label for="maxCost">Максимальная цена</label>
-                    <input type="number" class="form-control" id="maxCost" placeholder="Введите максимальную цену" th:field="*{maxCost}">
+                    <input type="number" class="form-control" id="maxCost" placeholder="Введите максимальную цену"
+                           th:field="*{maxCost}">
                 </div>
                 <div class="form-group">
                     <label for="productTitle">Название продукта</label>

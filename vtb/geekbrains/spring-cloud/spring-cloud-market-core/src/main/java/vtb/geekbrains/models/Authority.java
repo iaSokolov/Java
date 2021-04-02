@@ -28,6 +28,7 @@ public class Authority {
             return Objects.hash(username, authority);
         }
     }
+
     @EmbeddedId
     private Authority.Id id;
 

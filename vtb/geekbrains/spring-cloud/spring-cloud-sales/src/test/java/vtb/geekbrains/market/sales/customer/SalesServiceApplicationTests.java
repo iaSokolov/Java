@@ -1,10 +1,10 @@
-package vtb.geekbrains.market.customer;
+package vtb.geekbrains.market.sales.customer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CustomerServiceApplicationTests {
+class SalesServiceApplicationTests {
 
     @Test
     void contextLoads() {
