@@ -1,0 +1,32 @@
+server:
+  port: 8190
+
+# Настройки Server Discovery
+eureka:
+  instance:
+    appname: product
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    instance:
+      preferIpAddress: true
+
+# Настройки базы данных
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/product?currentSchema=application"
+    username: postgres
+    password: 1987
+
+  flyway:
+    enabled: true
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+
+# Настройки JWT аутентификации
+jwt:
+  secret: c29rb2xvdg==

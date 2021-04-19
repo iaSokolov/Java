@@ -14,12 +14,14 @@
             <form th:action="@{/sale/new}" method="post" th:object="${sale}">
                 <div class="form-group">
                     <label for="productId">Код товара</label>
-                    <input type="text" class="form-control" id="productId" placeholder="Код продукта" th:field="*{id.product_id}">
+                    <input type="text" class="form-control" id="productId" placeholder="Код продукта"
+                           th:field="*{id.product_id}">
                 </div>
 
                 <div class="form-group">
                     <label for="customerId">Код клиента</label>
-                    <input type="text" class="form-control" id="customerId" placeholder="Код клиента" th:field="*{id.customer_id}">
+                    <input type="text" class="form-control" id="customerId" placeholder="Код клиента"
+                           th:field="*{id.customer_id}">
                 </div>
 
                 <div class="form-group">

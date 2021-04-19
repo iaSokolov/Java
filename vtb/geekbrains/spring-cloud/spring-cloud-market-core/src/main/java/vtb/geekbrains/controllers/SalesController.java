@@ -36,8 +36,7 @@ public class SalesController {
         try {
             Sale sale = this.salesClient.getById(id.getProduct_id(), id.getCustomer_id());
             model.addAttribute("sale", sale);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return "salesEdit";

@@ -2,26 +2,15 @@ package vtb.geekbrains.market.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
-
 @Component
+@RefreshScope
 public class JwtProvider {
-    final String secret = "amF2YW1hc3Rlcg==";
-
-    public String generateToken(String login) {
-        Date date = Date.from(LocalDate.now().plusDays(15).atStartOfDay(ZoneId.systemDefault()).toInstant());
-        return Jwts.builder()
-                .setSubject(login)
-                .claim("ROLES", "ROLE_USER")
-                .setExpiration(date)
-                .signWith(SignatureAlgorithm.HS512, secret)
-                .compact();
-    }
+    @Value("${jwt.secret}")
+    private String secret;
 
     public boolean validateToken(String token) {
         try {
@@ -38,10 +27,11 @@ public class JwtProvider {
     }
 
     public String getRole(String token) {
+        String role = "";
         Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-        if (claims != null ) {
-            return claims.get("ROLE", String.class);
+        if (claims != null) {
+            role = claims.get("ROLE", String.class);
         }
-        return "";
+        return role;
     }
 }

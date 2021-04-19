@@ -2,13 +2,14 @@ package vtb.geekbrains.jwt;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
 public class TokenProvider {
-    final String secret = "amF2YW1hc3Rlcg==";
+    private String secret = "c29rb2xvdg==";
 
     public String getToken(String login) {
         Date date = Date.from(LocalDate.now().plusDays(15).atStartOfDay(ZoneId.systemDefault()).toInstant());

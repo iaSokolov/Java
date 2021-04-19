@@ -10,7 +10,7 @@ import vtb.geekbrains.jwt.TokenProvider;
 @Component
 public class FeignClientInterceptor implements RequestInterceptor {
 
-    private static final String AUTHORIZATION_HEADER="Authorization";
+    private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String TOKEN_TYPE = "Bearer";
 
     @Override

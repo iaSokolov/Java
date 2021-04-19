@@ -10,12 +10,12 @@ import vtb.geekbrains.models.Customer;
 @Controller
 public class CustomerController {
     @Autowired
-    CustomerClient customerClient; 
+    CustomerClient customerClient;
 
     @GetMapping("/customer")
     public String getCustomer(Model model,
-                             @RequestParam(name = "search", required = false) String search,
-                             @RequestParam(name = "page", required = false) String page) {
+                              @RequestParam(name = "search", required = false) String search,
+                              @RequestParam(name = "page", required = false) String page) {
 
         model.addAttribute("customers", customerClient.getAll());
         return "customer";
