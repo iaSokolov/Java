@@ -14,6 +14,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.springframework.util.StringUtils.hasText;
 
@@ -37,10 +38,8 @@ public class JwtFilter extends GenericFilterBean {
                     return role;
                 }
             };
-            ArrayList<GrantedAuthority> list = new ArrayList<>();
-            list.add(gr);
 
-            UsernamePasswordAuthenticationToken authReq = new UsernamePasswordAuthenticationToken(userLogin, null, list);
+            UsernamePasswordAuthenticationToken authReq = new UsernamePasswordAuthenticationToken(userLogin, null, Arrays.asList(gr));
             SecurityContextHolder.getContext().setAuthentication(authReq);
         }
         filterChain.doFilter(servletRequest, servletResponse);

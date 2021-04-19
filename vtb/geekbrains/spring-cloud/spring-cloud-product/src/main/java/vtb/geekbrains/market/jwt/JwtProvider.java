@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.Map;
 
 @Component
 public class JwtProvider {
@@ -39,17 +38,10 @@ public class JwtProvider {
     }
 
     public String getRole(String token) {
-        String role = "";
-
         Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-        for (final Map.Entry<String, Object> claim : claims.entrySet()) {
-            if (claim.getKey().equals("ROLE")) {
-                if (claim.getValue() != null) {
-                    role = claim.getValue().toString();
-                }
-            }
+        if (claims != null ) {
+            return claims.get("ROLE", String.class);
         }
-
-        return role;
+        return "";
     }
 }

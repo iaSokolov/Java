@@ -2,12 +2,11 @@ package vtb.geekbrains.clients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import vtb.geekbrains.configuration.FeignClientConfiguration;
 import vtb.geekbrains.models.Product;
 
 import java.util.List;
 
-@FeignClient(name = "product", configuration = FeignClientConfiguration.class)
+@FeignClient(name = "product")
 public interface ProductClient {
     @GetMapping("/product")
     public List<Product> getAll();
@@ -21,6 +20,3 @@ public interface ProductClient {
     @DeleteMapping("/product")
     void delete(Product product);
 }
-
-
-

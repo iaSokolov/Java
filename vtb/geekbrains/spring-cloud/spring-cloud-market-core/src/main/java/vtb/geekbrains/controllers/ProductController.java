@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.*;
 import vtb.geekbrains.clients.ProductClient;
+import vtb.geekbrains.jwt.TokenProvider;
 import vtb.geekbrains.models.Product;
 
 @Data
