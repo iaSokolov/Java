@@ -1,9 +1,12 @@
 package vtb.geekbrains.market.controllers;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import vtb.geekbrains.market.models.Product;
 import vtb.geekbrains.market.services.ProductService;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -28,11 +31,18 @@ public class ProductController {
 
     @PostMapping("/product")
     public void createProductEntity(@RequestBody Product product) {
+
         this.productService.createEntity(product);
     }
 
     @DeleteMapping("/product")
     public void deleteProductEntity(@RequestBody Product product) {
+
         this.productService.deleteEntity(product);
+    }
+
+    @GetMapping("me")
+    public String getMe() {
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
     }
 }
