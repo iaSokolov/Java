@@ -17,5 +17,6 @@
         <module>spring-cloud-market-core</module>
         <module>spring-cloud-discovery-server</module>
         <module>spring-cloud-sales</module>
+        <module>spring-cloud-zuul</module>
     </modules>
 </project>

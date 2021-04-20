@@ -12,5 +12,4 @@ public class MarketConfigServerApplication {
 
         SpringApplication.run(MarketConfigServerApplication.class, args);
     }
-
 }
