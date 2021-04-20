@@ -1,8 +1,8 @@
-package vtb.geekbrains.market.customer.controllers;
+package vtb.geekbrains.market.product.customer.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import vtb.geekbrains.market.customer.models.Customer;
-import vtb.geekbrains.market.customer.services.CustomerService;
+import vtb.geekbrains.market.product.customer.models.Customer;
+import vtb.geekbrains.market.product.customer.services.CustomerService;
 
 import java.util.List;
 

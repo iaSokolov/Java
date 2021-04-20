@@ -1,12 +1,10 @@
-package vtb.geekbrains.market.controllers;
+package vtb.geekbrains.market.product.controllers;
 
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import vtb.geekbrains.market.models.Product;
-import vtb.geekbrains.market.services.ProductService;
+import vtb.geekbrains.market.product.models.Product;
+import vtb.geekbrains.market.product.services.ProductService;
 
-import java.util.Collection;
 import java.util.List;
 
 @RestController

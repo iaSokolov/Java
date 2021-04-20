@@ -1,4 +1,4 @@
-package vtb.geekbrains.market.models;
+package vtb.geekbrains.market.product.models;
 
 import lombok.Data;
 

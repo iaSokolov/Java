@@ -1,4 +1,4 @@
-package vtb.geekbrains.market.jwt;
+package vtb.geekbrains.market.product.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,7 +13,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.springframework.util.StringUtils.hasText;

@@ -1,4 +1,4 @@
-package vtb.geekbrains.market.configuration;
+package vtb.geekbrains.market.product.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import vtb.geekbrains.market.jwt.JwtFilter;
+import vtb.geekbrains.market.product.jwt.JwtFilter;
 
 @Configuration
 @EnableWebSecurity(debug = false)

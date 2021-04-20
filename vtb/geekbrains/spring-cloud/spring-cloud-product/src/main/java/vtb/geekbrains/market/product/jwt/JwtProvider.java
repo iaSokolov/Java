@@ -1,4 +1,4 @@
-package vtb.geekbrains.market.jwt;
+package vtb.geekbrains.market.product.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

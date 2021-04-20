@@ -1,8 +1,8 @@
-package vtb.geekbrains.market.sales.controllers;
+package vtb.geekbrains.market.product.sales.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import vtb.geekbrains.market.sales.models.Sales;
-import vtb.geekbrains.market.sales.services.SalesService;
+import vtb.geekbrains.market.product.sales.models.Sales;
+import vtb.geekbrains.market.product.sales.services.SalesService;
 
 import java.util.List;
 

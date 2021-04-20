@@ -1,4 +1,4 @@
-package vtb.geekbrains.market.configuration;
+package vtb.geekbrains.market.product.configuration;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.stereotype.Component;

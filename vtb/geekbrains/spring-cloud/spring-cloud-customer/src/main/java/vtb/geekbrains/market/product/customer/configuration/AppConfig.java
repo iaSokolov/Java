@@ -1,4 +1,4 @@
-package vtb.geekbrains.market.customer.configuration;
+package vtb.geekbrains.market.product.customer.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
