@@ -1,0 +1,73 @@
+version: '3.1'
+
+services:
+#  база данных
+  db:
+    image: postgres
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1987
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes: 
+      - /home/ilja/IdeaProjects/java/vtb/geekbrains/spring-cloud/database:/var/lib/postgresql/data
+#    ports:
+#      - 5433:5432
+#  панель управления базой данных
+  adminer:
+    container_name: adminer_container
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - db
+#  Eureka Server
+  eureka:
+    container_name: discovery_service_container
+    build: ./spring-cloud-discovery-server
+    ports:
+      - 8761:8761
+  #  Config Server
+  config_service:
+    container_name: config_service_container
+    build:
+      ./spring-cloud-config
+    links:
+      - eureka
+    environment:
+      DB_HOST: db
+      DB_USERNAME: postgres
+      DB_PASSWORD: 1987
+      SERVICE_URL_DEFAULT_ZONE: "http://eureka:8761/eureka/"
+#  базовое приложение
+  market_core:
+    container_name: market_core_container
+    build:
+      ./spring-cloud-market-core
+    ports:
+      - 8189:8189
+    links:
+      - eureka
+      - config_service
+      - db
+    environment:
+      DB_HOST: db
+      DB_USERNAME: postgres
+      DB_PASSWORD: 1987
+      SERVICE_URL_DEFAULT_ZONE: "http://eureka:8761/eureka/"
+  product:
+    container_name: product_container
+    build:
+      ./spring-cloud-product
+    ports:
+      - 8190:8190
+    links:
+      - eureka
+      - config_service
+      - db
+    environment:
+      DB_HOST: db
+      DB_USERNAME: postgres
+      DB_PASSWORD: 1987
+      SERVICE_URL_DEFAULT_ZONE: "http://eureka:8761/eureka/"
