@@ -35,6 +35,7 @@ services:
       ./spring-cloud-config
     links:
       - eureka
+      - db
     environment:
       DB_HOST: db
       DB_USERNAME: postgres
