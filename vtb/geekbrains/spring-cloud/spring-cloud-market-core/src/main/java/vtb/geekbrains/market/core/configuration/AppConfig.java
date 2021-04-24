@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("vtb.geekbrains")
+@ComponentScan("vtb.geekbrains.market.core")
 public class AppConfig {
 
 }
