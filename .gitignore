@@ -2,3 +2,4 @@
 *.iml
 target/
 .DS_Store
+/vtb/geekbrains/spring-cloud/database/data
